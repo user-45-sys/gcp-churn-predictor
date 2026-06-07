@@ -3,6 +3,9 @@ import joblib
 import pandas as pd
 
 app = Flask(__name__)
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'API is running successfully!', 'version': '1.0'})
 # Load the trained model that you generated in Phase 2
 model = joblib.load('churn_model.pkl')
 
